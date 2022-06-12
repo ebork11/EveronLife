@@ -5,11 +5,7 @@ class EL_GatherAction : ScriptedUserAction
 	
 	[Attribute("", UIWidgets.ResourceNamePicker, desc: "Prefab what item is gathered")]
 	private ResourceName m_GatherItemPrefab;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> edf191140763f9d08c131de8378cac1d87c37911
 	[Attribute(defvalue:"1", UIWidgets.EditBox, desc: "Amount of items to receive")]
 	private int m_AmountGathered;
 	
@@ -41,10 +37,7 @@ class EL_GatherAction : ScriptedUserAction
 		
 		//Show hint what to do with the gathered item
 		EL_GameModeRoleplay.GetInstance().ShowInitalTraderHint();
-<<<<<<< HEAD
-=======
-		
->>>>>>> edf191140763f9d08c131de8378cac1d87c37911
+
 		if (m_DelayTimeMilliseconds > 0) // If item has a delay between uses
 		{
 			m_CanBePerformed = false;
