@@ -31,6 +31,10 @@ modded class SCR_PlayerController
 			return;
 		
 		// Open up phone menu!
+		// Make base transceiver your phone number and the intercom transceiver the one you are trying to contact?
+		// TODO: fix bug where channel doesnt show up unless you have previously talked
+		// TODO: prevent user from manually changing phone radio freq
+		// TODO: hide channel when not holding phone in hand?
 		
 		Print("Open menu");
 	}
