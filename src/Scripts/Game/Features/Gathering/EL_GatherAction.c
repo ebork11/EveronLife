@@ -5,7 +5,7 @@ class EL_GatherAction : ScriptedUserAction
 	
 	[Attribute("", UIWidgets.ResourceNamePicker, desc: "Prefab what item is gathered")]
 	private ResourceName m_GatherItemPrefab;
-	
+
 	[Attribute(defvalue:"1", UIWidgets.EditBox, desc: "Amount of items to receive")]
 	private int m_AmountGathered;
 	
@@ -27,17 +27,18 @@ class EL_GatherAction : ScriptedUserAction
 	// play a pickup sound and then add the correct amount to the users inventory
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		RplComponent replication = RplComponent.Cast(pOwnerEntity.FindComponent(RplComponent));
+		// Play sound
+		auto replication = RplComponent.Cast(pOwnerEntity.FindComponent(RplComponent));
 		
-		m_InventoryManager.PlayItemSound(replication.Id(), "SOUND_PICK_UP");
+		//Todo: Replace SCR_InventoryStorageManagerComponent RPL setup with own function or better synced sound alternative
+		auto inventoryManager = SCR_InventoryStorageManagerComponent.Cast(pUserEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+		inventoryManager.PlayItemSound(replication.Id(), "SOUND_PICK_UP");
 		
 		//Spawn item
-		for (int i = 0; i < m_AmountGathered; i++)
-			m_InventoryManager.TrySpawnPrefabToStorage(m_GatherItemPrefab);
+		inventoryManager.TrySpawnPrefabToStorage(m_GatherItemPrefab);
 		
 		//Show hint what to do with the gathered item
 		EL_GameModeRoleplay.GetInstance().ShowInitalTraderHint();
-		
 		if (m_DelayTimeMilliseconds > 0) // If item has a delay between uses
 		{
 			m_CanBePerformed = false;
@@ -46,17 +47,12 @@ class EL_GatherAction : ScriptedUserAction
 		}
 	}
 	
-	//------------------------------------------------------------------------------------------------
-	// Formats name for action when hovering
 	override bool GetActionNameScript(out string outName)
 	{
 		outName = string.Format("Gather %1", m_GatherItemDisplayName);
 		return true;
 	}
 	
-	//------------------------------------------------------------------------------------------------
-	// Checks if a required item has been set in the Editor
-	// If so, check if its in the users inventory/hands depending on settings set
 	override bool CanBePerformedScript(IEntity user)
  	{
 		if (!m_CanBePerformed)
@@ -104,11 +100,4 @@ class EL_GatherAction : ScriptedUserAction
 		
 		return false;
  	}
-	
-	//------------------------------------------------------------------------------------------------
-	// Called after delay timer runs out
-	protected void ToggleCanBePerformed()
-	{
-		m_CanBePerformed = !m_CanBePerformed;
-	}
 }
