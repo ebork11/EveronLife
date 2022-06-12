@@ -18,20 +18,6 @@ modded class SCR_PlayerController
 		if (!user)
 			return;
 			
-		/*
-		SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(m_MainEntity.FindComponent(SCR_InventoryStorageManagerComponent));
-		if (!inventoryManager)
-			return;
-		
-		array<IEntity> outItems = new array<IEntity>();
-		inventoryManager.GetItems(outItems);
-		
-		foreach (IEntity item : outItems)
-		{
-			if (item.GetPrefabData().GetPrefabname() == ""
-		}
-		*/
-		
 		SCR_CharacterControllerComponent characterControllerComponent = SCR_CharacterControllerComponent.Cast(user.FindComponent(SCR_CharacterControllerComponent));
 		if (!characterControllerComponent)
 			return;
@@ -40,14 +26,12 @@ modded class SCR_PlayerController
 		if (!inHand)
 			return;
 		
-		InventoryItemComponent inventoryItemComponent = InventoryItemComponent.Cast(inHand.FindComponent(InventoryItemComponent));
-		if (!inventoryItemComponent)
+		SCR_RadioComponent radioComponent = SCR_RadioComponent.Cast(inHand.FindComponent(SCR_RadioComponent));
+		if (!radioComponent)
 			return;
 		
+		// Open up phone menu!
 		
-		
-		Print("End");
-		//characterControllerComponent.TakeGadgetInLeftHand();
-		
+		Print("Open menu");
 	}
 }
