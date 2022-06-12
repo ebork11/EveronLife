@@ -488,6 +488,24 @@ $grp GenericEntity {
  AppleTraderTestItems {
   coords 110.275 0.956 135.088
   {
+   GenericEntity : "{43C106E0CE0A3FA2}Prefabs/Items/Equipment/Phone/Phone.et" {
+    components {
+     InventoryItemComponent "{599823167FF12413}" {
+      Attributes SCR_ItemAttributeCollection "{59982316BE102059}" {
+       ItemAnimationAttributes ItemAnimationAttributes "{59982316B319F14C}" {
+        AnimationAttachments {
+         AnimationAttachmentInfo "{599823141663A4B3}" {
+          AnimGraph "{883777E45A6C4DA1}Assets/Items/Medicine/Workspaces/Gauze_01.agr"
+          AnimInstance "{79BD98038DD60F88}Assets/Items/Medicine/Workspaces/Gauze_01_player.asi"
+          BindingName "Gadget"
+         }
+        }
+       }
+      }
+     }
+    }
+    coords 0 -0.039 -0.274
+   }
    $grp GenericEntity : "{C9D661E5B0714711}Prefabs/Items/Food/Apple.et" {
     {
      coords -0.137 -0.036 -0.08

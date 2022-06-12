@@ -1,0 +1,80 @@
+GenericEntity {
+ ID "59982316311D2705"
+ components {
+  BaseRadioComponent "{5998231641A349BD}" {
+   "Transmitting Range" 2000
+   Transceivers {
+    BaseTransceiver "{59982316751B25CD}" {
+     ChannelFrequency 30000
+    }
+   }
+   "Encryption key" "PHONE"
+   "Turned on" 1
+  }
+  InventoryItemComponent "{599823167FF12413}" {
+   Attributes SCR_ItemAttributeCollection "{59982316BE102059}" {
+    ItemDisplayName UIInfo "{59982316BC0BA01D}" {
+     Name "Phone"
+     Description "Item to contact people over long distance"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{59982316B423C799}" {
+     Weight 0.2
+     SizeSetupStrategy Volume
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{59982316B319F14C}" {
+     AnimationInstance "{4FCBEA45CAEBC9C0}anims/workspaces/player/player_main_1h.asi"
+     AnimationIKPose "{3E5C93E85F05C6B5}Assets/Weapons/Grenades/RGD5/anims/anm/p_rgd5_ik.anm"
+     AnimationAttachments {
+      AnimationAttachmentInfo "{5998231409D7D164}" {
+       AnimGraph "{883777E45A6C4DA1}Assets/Items/Medicine/Workspaces/Gauze_01.agr"
+       AnimInstance "{79BD98038DD60F88}Assets/Items/Medicine/Workspaces/Gauze_01_player.asi"
+       BindingName "Gadget"
+      }
+     }
+     HandAdditiveRotation -100 -40 -30
+     HandAdditiveTranslation 0 0.02 -0.01
+    }
+    CustomAttributes {
+     ItemActionAnimAttributes "{59982316EB61612E}" {
+      ActionType Bandage
+     }
+    }
+    CommonItemType "NONE"
+    m_Size SLOT_1x1
+    m_SlotType SLOT_LOADOUT_STORAGE
+   }
+  }
+  MeshObject "{5998231600F8B59C}" {
+   Object "{2719ECBE0E7C4F4F}Assets/Items/Phone/Phone.xob"
+  }
+  SCR_GadgetComponent "{599823167C4CE4FF}" {
+   m_eAnimVariable R148
+  }
+  SCR_RadioComponent "{599823167A7D0472}" {
+   m_eAnimVariable R148
+   m_iRadioType R148
+  }
+  ActionsManagerComponent "{5998231712133028}" {
+   ActionContexts {
+    UserActionContext "{5998231710EC5B02}" {
+     ContextName "default"
+     Position PointInfo "{599823170D2E6E90}" {
+     }
+    }
+   }
+   additionalActions {
+    SCR_PickUpItemAction "{599823170889CD7A}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{5998231706C1757F}" {
+      Name "#AR-Inventory_PickUp"
+     }
+    }
+   }
+  }
+  RplComponent "{599823172BF878ED}" {
+  }
+ }
+ coords 110.76 0.962 134.951
+}
